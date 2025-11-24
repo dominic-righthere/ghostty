@@ -17,7 +17,7 @@ pub const winsize = extern struct {
 
 pub const Pty = switch (builtin.os.tag) {
     .windows => WindowsPty,
-    .ios => NullPty,
+    .ios => @import("pty/IOSPty.zig").IOSPty,
     else => PosixPty,
 };
 
